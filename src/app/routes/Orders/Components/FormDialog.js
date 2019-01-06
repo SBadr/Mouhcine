@@ -33,7 +33,7 @@ class FormDialog extends React.Component {
     };
 
     createOrder = () => {
-        fetch('http://localhost:4000/orders', {
+        fetch('http://localhost:4000/api/orders', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
@@ -80,9 +80,9 @@ class FormDialog extends React.Component {
                             <InputLabel htmlFor="etiq_imprime">Etiquette imprimé</InputLabel>
                             <Select
                                 inputProps={{
-                                name: 'etiq_imprime',
+                                name: 'etiqImprime',
                                 }}
-                                value={this.state.etiq_imprime}
+                                value={this.state.etiqImprime}
                                 onChange={this.handleInputChange}
                             >
                                 <MenuItem value="">
@@ -92,12 +92,12 @@ class FormDialog extends React.Component {
                             </Select>
                         </FormControl>
                         <TextField
-                        name="nb_pal"
+                        name="palNbr"
                         label="Nombre de palettes"
                         type="number"
                         margin="normal"
                         fullWidth
-                        value={this.state.nb_pal}
+                        value={this.state.palNbr}
                         onChange={this.handleInputChange}
                         />
                         <FormControl fullWidth margin="normal">
@@ -116,11 +116,11 @@ class FormDialog extends React.Component {
                             </Select>
                         </FormControl>
                         <TextField
-                        name="transportor"
+                        name="transporter"
                         label="Transporteur"
                         margin="normal"
                         fullWidth
-                        value={this.state.transportor}
+                        value={this.state.transporter}
                         onChange={this.handleInputChange}
                         />
                     </DialogContent>

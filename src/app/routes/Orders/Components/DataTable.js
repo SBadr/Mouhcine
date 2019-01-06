@@ -28,11 +28,11 @@ function getSorting(order, orderBy) {
 
 const columnData = [
   { id: 'client', numeric: false, disablePadding: true, label: 'Client' },
-  { id: 'created_date', numeric: false, disablePadding: false, label: 'Date de création' },
-  { id: 'etiq_imprime', numeric: false, disablePadding: false, label: 'Etiquette imprimé' },
-  { id: 'nb_pal', numeric: true, disablePadding: false, label: 'Nombre de palettes' },
+  { id: 'createdDate', numeric: false, disablePadding: false, label: 'Date de création' },
+  { id: 'etiqImprime', numeric: false, disablePadding: false, label: 'Etiquette imprimé' },
+  { id: 'palNbr', numeric: true, disablePadding: false, label: 'Nombre de palettes' },
   { id: 'prepa', numeric: false, disablePadding: false, label: 'Préparation' },
-  { id: 'transportor', numeric: false, disablePadding: false, label: 'Transporteur' },
+  { id: 'transporter', numeric: false, disablePadding: false, label: 'Transporteur' },
 ];
 
 class EnhancedTableHead extends React.Component {
@@ -208,7 +208,7 @@ class EnhancedTable extends React.Component {
   }
 
   updateData = () => {
-    fetch('http://localhost:4000/orders')
+    fetch('http://localhost:4000/api/orders')
     .then( r => r.json() )
     .then( data => {
       this.setState({data: data});
@@ -305,11 +305,11 @@ class EnhancedTable extends React.Component {
                       <TableCell component="th" scope="row" padding="none">
                         {n.client}
                       </TableCell>
-                      <TableCell><Moment format="DD/MM/YYYY HH:mm">{n.created_date}</Moment></TableCell>
-                      <TableCell>{n.etiq_imprime}</TableCell>
-                      <TableCell numeric>{n.nb_pal}</TableCell>
+                      <TableCell><Moment format="DD/MM/YYYY HH:mm">{n.createdDate}</Moment></TableCell>
+                      <TableCell>{n.etiqImprime}</TableCell>
+                      <TableCell numeric>{n.palNbr}</TableCell>
                       <TableCell>{n.prepa}</TableCell>
-                      <TableCell>{n.transportor}</TableCell>
+                      <TableCell>{n.transporter}</TableCell>
                     </TableRow>
                   );
                 })}
