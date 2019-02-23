@@ -54,7 +54,10 @@ class App extends React.Component {
                                        <Route path={`${match.url}/orders`}
                                        component={asyncComponent(() => import('./routes/Orders'))}/>
                                        <Route path={`${match.url}/suppliers`}
-                                       component={asyncComponent(() => import('./routes/Suppliers'))}/> <Route
+                                       component={asyncComponent(() => import('./routes/Suppliers'))}/> 
+                                       <Route path={`${match.url}/checks`}
+                                       component={asyncComponent(() => import('./routes/Checks'))}/> 
+                                       <Route
                                 component={asyncComponent(() => import('components/Error404'))}/>
                             </Switch>
                         </div>

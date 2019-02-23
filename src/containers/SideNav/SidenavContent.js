@@ -93,6 +93,10 @@ class SidenavContent extends Component {
                             <i className="zmdi zmdi-truck zmdi-hc-fw"/>
                             <span className="nav-text">Suppliers</span>
                         </NavLink>
+                        <NavLink to="/app/checks">
+                            <i className="zmdi zmdi-money zmdi-hc-fw"/>
+                            <span className="nav-text">Checks</span>
+                        </NavLink>
                     </li>
                 </ul>
             </CustomScrollbars>
