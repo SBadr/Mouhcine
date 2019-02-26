@@ -555,5 +555,10 @@
   "popup.statistics": "Statistics",
   "popup.clearData": "Clear Data",
   "component.selectionControl.radioBtnGroup": "Radio Buttons Group",
-  "component.popover.anchorPlayground": "Anchor Playground"
+  "component.popover.anchorPlayground": "Anchor Playground",
+  "pages.dashboard.reporting1": "Reporting 1",
+  "pages.dashboard.reporting2": "Reporting 2",
+  "pages.dashboard.reporting3": "Reporting 3",
+  "pages.dashboard.reporting4": "Reporting 4",
+  "sidebar.management" : "Management"
 }
