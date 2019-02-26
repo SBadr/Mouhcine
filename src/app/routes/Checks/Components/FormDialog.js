@@ -6,30 +6,18 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import Select from '@material-ui/core/Select';
-import FormControl from '@material-ui/core/FormControl';
+import { MuiPickersUtilsProvider, TimePicker, DatePicker } from 'material-ui-pickers';
+
 
 
 class FormDialog extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {}
     }
-    state = {
-        open: false,
-    };
-
-    handleClickOpen = () => {
-        this.setState({open: true});
-    };
 
     handleRequestClose = () => {
-        this.setState({open: false});
-    };
-
-    handleUpdateData = () => {
-        this.props.handleUpdateData();
+        this.props.handleCloseModal()
     };
 
     createOrder = () => {
@@ -58,11 +46,13 @@ class FormDialog extends React.Component {
         });
       }
 
+      handleDateChange = date => {
+        this.setState({ issuedDate: date });
+      };
     render() {
         return (
             <div>
-                <Button variant="raised" className="bg-primary text-white" onClick={this.handleClickOpen}><i className="zmdi zmdi-plus zmdi-hc-lg" /></Button>
-                <Dialog open={this.state.open} onClose={this.handleRequestClose}>
+                <Dialog open={true} onClose={this.handleRequestClose}>
                     <DialogTitle>Nouvelle remise</DialogTitle>
                     <DialogContent>
                         <DialogContentText>
@@ -74,16 +64,15 @@ class FormDialog extends React.Component {
                         type="number"
                         margin="normal"
                         fullWidth
-                        value={this.state.palNbr}
+                        value={this.state.number}
                         onChange={this.handleInputChange}
                         />
-                        <TextField
-                        name="remiseDate"
+                        <DatePicker
+                        id="remiseDate"
                         label="Date de remise"
-                        margin="normal"
+                        value={this.state.issuedDate}
+                        onChange={this.handleDateChange}
                         fullWidth
-                        value={this.state.transporter}
-                        onChange={this.handleInputChange}
                         />
                     </DialogContent>
                     <DialogActions>

@@ -150,6 +150,7 @@ class EnhancedTableToolbar extends React.Component {
           ) : (
             <Typography variant="title" id="tableTitle">
               Cheques
+              {this.props.selected}
             </Typography>
           )}
         </div>
@@ -158,16 +159,15 @@ class EnhancedTableToolbar extends React.Component {
         
           {numSelected > 0 ? (
             <Tooltip title="Create">
-              <IconButton aria-label="Create">
+              <IconButton aria-label="Create" onClick={ this.handleOpenModal}>
                 <AddIcon />
               </IconButton>
             </Tooltip>
           ) : (
-            <Tooltip title="Filter list">
-              <FormDialog handleUpdateData={this.props.handleUpdateData}/>
-            </Tooltip>
+            <div></div>
           )}
         </div>
+        {this.state.openModal && <FormDialog open={this.state.openModal} handleCloseModal={this.handleCloseModal}/>}
       </Toolbar>
     );
   }
@@ -276,7 +276,7 @@ class EnhancedTable extends React.Component {
 
     return (
       <Paper className={classes.root}>
-        <EnhancedTableToolbar handleUpdateData={this.updateData} numSelected={selected.length} />
+        <EnhancedTableToolbar selected={this.state.selected} handleUpdateData={this.updateData} numSelected={selected.length} />
         <div className={classes.tableWrapper}>
           <Table className={classes.table} aria-labelledby="tableTitle">
             <EnhancedTableHead
@@ -299,7 +299,7 @@ class EnhancedTable extends React.Component {
                       onClick={event => this.handleClick(event, n.id)}
                       role="checkbox"
                       aria-checked={isSelected}
-                      tabIndex={-1}
+                      tabIndex={-1} 
                       key={index}
                       selected={isSelected}
                     >
@@ -315,7 +315,7 @@ class EnhancedTable extends React.Component {
                       <TableCell>{n.comment}</TableCell>
                       <TableCell><Moment format="DD/MM/YYYY">{n.cashingDateDesired}</Moment></TableCell>
                       <TableCell>{n.amount}</TableCell>
-                      <TableCell>{n.remise.number}</TableCell>
+                      <TableCell>{(n.remise != undefined) ?n.remise.number: ""}</TableCell>
                       <TableCell><Moment format="DD/MM/YYYY">{n.issuedDate}</Moment></TableCell>
                       <TableCell>{n.status}</TableCell>
                     </TableRow>
