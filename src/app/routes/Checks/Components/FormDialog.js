@@ -17,33 +17,32 @@ import MenuItem from '@material-ui/core/MenuItem';
 class FormDialog extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {}
+        this.state = {
+            issuedDate: new Date()
+        }
     }
 
     handleRequestClose = () => {
         this.props.handleCloseModal()
     };
 
-    createOrder = () => {
-        console.log(this.props.selected)
-          
-    };
-
     handleInputChange = (event) => {
         const target = event.target;
         const value = target.value;
         const name = target.name;
-        
-        console.log(value)
-        console.log(event)
         this.setState({
           [name]: value
         });
       }
 
       handleDateChange = date => {
-        this.setState({ issuedDate: date });
+        this.setState({ issuedDate: date._d });
       };
+
+      saveRemise = () => {
+        this.props.saveRemise(this.state)
+      }
+
     render() {
         return (
             <div>
@@ -54,16 +53,15 @@ class FormDialog extends React.Component {
                             Veuillez saisir les détails de la remise.
                         </DialogContentText>
                         <TextField
-                        name="remiseNumber"
+                        name="number"
                         label="Numero de remise"
-                        type="number"
                         margin="normal"
                         fullWidth
                         value={this.state.number}
                         onChange={this.handleInputChange}
                         />
                         <FormControl fullWidth margin="normal">
-                            <InputLabel htmlFor="prepa">Préparation</InputLabel>
+                            <InputLabel htmlFor="bank">Banque</InputLabel>
                             <Select
                                 inputProps={{
                                 name: 'bank',
@@ -74,7 +72,11 @@ class FormDialog extends React.Component {
                                 <MenuItem value="">
                                 <em>None</em>
                                 </MenuItem>
-                                <MenuItem value={'L'}>L</MenuItem>
+                                <MenuItem value={'SG'}>SG</MenuItem>
+                                <MenuItem value={'BNP'}>BNP</MenuItem>
+                                <MenuItem value={'LCL'}>LCL</MenuItem>
+                                <MenuItem value={'HSBC'}>HSBC</MenuItem>
+                                <MenuItem value={'LBP'}>LBP</MenuItem>
                             </Select>
                         </FormControl>
                         <DatePicker
@@ -83,13 +85,14 @@ class FormDialog extends React.Component {
                         value={this.state.issuedDate}
                         onChange={this.handleDateChange}
                         fullWidth
+                        margin="normal"
                         />
                     </DialogContent>
                     <DialogActions>
                         <Button onClick={this.handleRequestClose} color="secondary">
                             Annuler
                         </Button>
-                        <Button onClick={this.createOrder} color="primary">
+                        <Button onClick={this.saveRemise} color="primary">
                             Créer
                         </Button>
                     </DialogActions>

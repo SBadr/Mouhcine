@@ -20,7 +20,9 @@ import Tooltip from '@material-ui/core/Tooltip';
 import AddIcon from '@material-ui/icons/Add';
 import { lighten } from '@material-ui/core/styles/colorManipulator';
 import FormDialog from './FormDialog';
-
+import Snackbar from '@material-ui/core/Snackbar';
+import green from '@material-ui/core/colors/green';
+import SnackbarContent from '@material-ui/core/SnackbarContent';
 
 function getSorting(order, orderBy) {
   return order === 'desc' ? (a, b) => b[orderBy] - a[orderBy] : (a, b) => a[orderBy] - b[orderBy];
@@ -134,6 +136,10 @@ class EnhancedTableToolbar extends React.Component {
     this.setState({openModal: false});
   }
 
+  saveRemise = (formData) => {
+    this.handleCloseModal()
+    this.props.saveRemise(formData)
+  }
   render(){
     const { numSelected, classes } = this.props;
     return (
@@ -167,7 +173,11 @@ class EnhancedTableToolbar extends React.Component {
             <div></div>
           )}
         </div>
-        {this.state.openModal && <FormDialog selected={this.props.selected}  open={this.state.openModal} handleCloseModal={this.handleCloseModal}/>}
+        {this.state.openModal &&
+        <FormDialog
+          saveRemise={this.saveRemise}
+          handleCloseModal={this.handleCloseModal}/>
+          }
       </Toolbar>
     );
   }
@@ -204,6 +214,7 @@ class EnhancedTable extends React.Component {
       data: [],
       page: 0,
       rowsPerPage: 5,
+      openSnackBar: false
     };
   }
 
@@ -218,6 +229,41 @@ class EnhancedTable extends React.Component {
       this.setState({data: data});
     });
   }
+
+  saveRemise = (formData) => {
+    console.log(this.state.data)
+    const reducer = (accumulator, currentValue) => accumulator + currentValue;
+    formData.amount = this.state.data.filter(n => this.state.selected.includes(n.id)).map(n => n.amount).reduce(reducer)
+    formData.numberCheck = this.state.selected.length
+    formData.status  = "En attente"
+    
+    fetch('http://localhost:4000/api/remises', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+          }).then(response=>response.json()).then( data => {
+            this.updateChecksWithRemise(data.id);
+          })
+  }
+
+  updateChecksWithRemise = (id) =>{
+    fetch('http://localhost:4000/api/checks/update?where={"id": {"inq": '+JSON.stringify(this.state.selected)+'}}', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: '{"remise_id" : "'+id+'"}'
+          }).then( r => {
+            this.updateData()
+            this.setState({selected: [], openSnackBar: true, Transition: this.TransitionDown})
+          })
+  }
+  
+  handleCloseSnackBar = () => {
+    this.setState({ openSnackBar: false });
+  };
 
   handleRequestSort = (event, property) => {
     const orderBy = property;
@@ -269,6 +315,8 @@ class EnhancedTable extends React.Component {
 
   isSelected = id => this.state.selected.indexOf(id) !== -1;
 
+  
+
   render() {
     const { classes } = this.props;
     const { data, order, orderBy, selected, rowsPerPage, page } = this.state;
@@ -276,7 +324,27 @@ class EnhancedTable extends React.Component {
 
     return (
       <Paper className={classes.root}>
-        <EnhancedTableToolbar selected={this.state.selected} handleUpdateData={this.updateData} numSelected={selected.length} />
+      <Snackbar
+          open={this.state.openSnackBar}
+          onClose={this.handleCloseSnackBar}
+          anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+          ContentProps={{
+            'aria-describedby': 'message-id',
+          }}
+        >
+          <SnackbarContent
+            style={{backgroundColor: green[600]}}
+            aria-describedby="client-snackbar"
+            message={
+              <span id="message-id">Remise reacted succefully</span>
+            }
+          />
+        </Snackbar>
+        <EnhancedTableToolbar
+          selected={this.state.selected}
+          handleUpdateData={this.updateData}
+          numSelected={selected.length} 
+          saveRemise={this.saveRemise}/>
         <div className={classes.tableWrapper}>
           <Table className={classes.table} aria-labelledby="tableTitle">
             <EnhancedTableHead
