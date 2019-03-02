@@ -1,11 +1,17 @@
 const languageData = [
     {
+        languageId: 'french',
+        locale: 'fr',
+        name: 'French',
+        icon: 'fr'
+    },
+    {
         languageId: 'english',
         locale: 'en',
         name: 'English',
         icon: 'us'
     },
-    {
+    /*{
         languageId: 'chinese',
         locale: 'zh',
         name: 'Chinese',
@@ -18,12 +24,6 @@ const languageData = [
         icon: 'es'
     },
     {
-        languageId: 'french',
-        locale: 'fr',
-        name: 'French',
-        icon: 'fr'
-    },
-    {
         languageId: 'italian',
         locale: 'it',
         name: 'Italian',
@@ -34,7 +34,7 @@ const languageData = [
         locale: 'ar',
         name: 'Arabic',
         icon: 'sa'
-    }
+    }*/
 
 ];
 export default languageData;
