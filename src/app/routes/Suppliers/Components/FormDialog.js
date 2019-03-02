@@ -32,8 +32,9 @@ class FormDialog extends React.Component {
         this.props.handleUpdateData();
     };
 
-    createOrder = () => {
-        fetch('http://localhost:4000/api/orders', {
+    createSupliers = () => {
+        var requestURL = '/Users/MouhcinePRO/Downloads/codebeautify.json';
+        fetch('http://localhost:4000/api/suppliers', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
@@ -61,78 +62,7 @@ class FormDialog extends React.Component {
     render() {
         return (
             <div>
-                <Button variant="raised" className="bg-primary text-white" onClick={this.handleClickOpen}><i className="zmdi zmdi-plus zmdi-hc-lg" /></Button>
-                <Dialog open={this.state.open} onClose={this.handleRequestClose}>
-                    <DialogTitle>Nouvelle commande</DialogTitle>
-                    <DialogContent>
-                        <DialogContentText>
-                            Pour créer une nouvelle commande, entrer les détails de la commande.
-                        </DialogContentText>
-                        <TextField
-                            margin="normal"
-                            name="client"
-                            label="Client"
-                            value={this.state.client}
-                            onChange={this.handleInputChange}
-                            fullWidth
-                        />
-                        <FormControl fullWidth margin="normal">
-                            <InputLabel htmlFor="etiq_imprime">Etiquette imprimé</InputLabel>
-                            <Select
-                                inputProps={{
-                                name: 'etiqImprime',
-                                }}
-                                value={this.state.etiqImprime}
-                                onChange={this.handleInputChange}
-                            >
-                                <MenuItem value="">
-                                <em>None</em>
-                                </MenuItem>
-                                <MenuItem value={'L'}>L</MenuItem>
-                            </Select>
-                        </FormControl>
-                        <TextField
-                        name="palNbr"
-                        label="Nombre de palettes"
-                        type="number"
-                        margin="normal"
-                        fullWidth
-                        value={this.state.palNbr}
-                        onChange={this.handleInputChange}
-                        />
-                        <FormControl fullWidth margin="normal">
-                            <InputLabel htmlFor="prepa">Préparation</InputLabel>
-                            <Select
-                                inputProps={{
-                                name: 'prepa',
-                                }}
-                                value={this.state.prepa}
-                                onChange={this.handleInputChange}
-                            >
-                                <MenuItem value="">
-                                <em>None</em>
-                                </MenuItem>
-                                <MenuItem value={'L'}>L</MenuItem>
-                            </Select>
-                        </FormControl>
-                        <TextField
-                        name="transporter"
-                        label="Transporteur"
-                        margin="normal"
-                        fullWidth
-                        value={this.state.transporter}
-                        onChange={this.handleInputChange}
-                        />
-                    </DialogContent>
-                    <DialogActions>
-                        <Button onClick={this.handleRequestClose} color="secondary">
-                            Annuler
-                        </Button>
-                        <Button onClick={this.createOrder} color="primary">
-                            Créer
-                        </Button>
-                    </DialogActions>
-                </Dialog>
+                <Button variant="raised" className="bg-primary text-white" onClick={this.createSupliers}><i className="zmdi zmdi-plus zmdi-hc-lg" /></Button>
             </div>
         );
     }

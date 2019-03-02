@@ -27,11 +27,13 @@ function getSorting(order, orderBy) {
 }
 
 const columnData = [
-  { id: 'type', numeric: false, disablePadding: true, label: 'Type' },
-  { id: 'department', numeric: false, disablePadding: false, label: 'Department' },
-  { id: 'phone', numeric: false, disablePadding: false, label: 'Phone' },
-  { id: 'title', numeric: true, disablePadding: false, label: 'Title' },
-  { id: 'status', numeric: false, disablePadding: false, label: 'Status' },
+  { id: 'lastName', numeric: false, disablePadding: false, label: 'lastName' },
+  { id: 'city', numeric: false, disablePadding: false, label: 'city' },
+  { id: 'department', numeric: false, disablePadding: false, label: 'department' },
+  { id: 'phone', numeric: false, disablePadding: false, label: 'phone' },
+  { id: 'email', numeric: false, disablePadding: false, label: 'email' },
+  { id: 'manager', numeric: false, disablePadding: false, label: 'manager' },
+
 ];
 
 class EnhancedTableHead extends React.Component {
@@ -45,19 +47,12 @@ class EnhancedTableHead extends React.Component {
     return (
       <TableHead>
         <TableRow>
-          <TableCell padding="checkbox">
-            <Checkbox
-              indeterminate={numSelected > 0 && numSelected < rowCount}
-              checked={numSelected === rowCount}
-              onChange={onSelectAllClick}
-            />
-          </TableCell>
           {columnData.map(column => {
             return (
               <TableCell
                 key={column.id}
                 numeric={column.numeric}
-                padding={column.disablePadding ? 'none' : 'default'}
+                padding={column.disablePadding ? 'default' : 'default'}
                 sortDirection={orderBy === column.id ? order : false}
               >
                 <Tooltip
@@ -137,17 +132,6 @@ class EnhancedTableToolbar extends React.Component {
           [classes.highlight]: numSelected > 0,
         })}
       >
-        <div className={classes.title}>
-          {numSelected > 0 ? (
-            <Typography color="inherit" variant="subheading">
-              {numSelected} selected
-            </Typography>
-          ) : (
-            <Typography variant="title" id="tableTitle">
-              Commandes
-            </Typography>
-          )}
-        </div>
         <div className={classes.spacer} />
         <div className={classes.actions}>
         
@@ -198,7 +182,7 @@ class EnhancedTable extends React.Component {
       selected: [],
       data: [],
       page: 0,
-      rowsPerPage: 5,
+      rowsPerPage: 10,
     };
   }
 
@@ -289,25 +273,13 @@ class EnhancedTable extends React.Component {
                 .map((n, index) => {
                   const isSelected = this.isSelected(n.id);
                   return (
-                    <TableRow
-                      hover
-                      onClick={event => this.handleClick(event, n.id)}
-                      role="checkbox"
-                      aria-checked={isSelected}
-                      tabIndex={-1}
-                      key={index}
-                      selected={isSelected}
-                    >
-                      <TableCell padding="checkbox">
-                        <Checkbox checked={isSelected} />
-                      </TableCell>
-                      <TableCell component="th" scope="row" padding="none">
-                        {n.type}
-                      </TableCell>
+                    <TableRow>
+                      <TableCell component="th" scope="row" padding="default">{n.lastName}</TableCell>
+                      <TableCell>{n.city}</TableCell>
                       <TableCell>{n.department}</TableCell>
                       <TableCell>{n.phone}</TableCell>
-                      <TableCell>{n.title}</TableCell>
-                      <TableCell>{n.status}</TableCell>
+                      <TableCell>{n.email}</TableCell>
+                      <TableCell>{n.manager}</TableCell>
                     </TableRow>
                   );
                 })}
