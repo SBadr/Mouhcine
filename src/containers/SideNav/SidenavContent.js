@@ -80,24 +80,161 @@ class SidenavContent extends Component {
                 <ul className="nav-menu">
 
                     <li className="nav-header"><IntlMessages id="sidebar.main"/></li>
-                    <li className="menu no-arrow">
+
+                    <li className="menu">
+                        <a role="button" href="javascript:void(0)">
+                            <i className="zmdi zmdi-view-dashboard zmdi-hc-fw"/>
+                            <span className="nav-text">
+                            <IntlMessages id="sidebar.dashboard"/>
+                        </span>
+                        </a>
+                        <ul className="sub-menu">
+                            <li>
+                                <NavLink className="prepend-icon" to="/app/dashboard/reporting1">
+                                    <span className="nav-text"><IntlMessages id="pages.dashboard.reporting1"/></span>
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink className="prepend-icon" to="/app/dashboard/reporting2">
+                                    <span className="nav-text"><IntlMessages id="pages.dashboard.reporting2"/></span>
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink className="prepend-icon" to="/app/dashboard/reporting3">
+                                    <span className="nav-text"><IntlMessages id="pages.dashboard.reporting3"/></span>
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink className="prepend-icon" to="/app/dashboard/reporting4">
+                                    <span className="nav-text"><IntlMessages id="pages.dashboard.reporting4"/></span>
+                                </NavLink>
+                            </li>
+                        </ul>
+
+                    </li>
+
+                    <li className="nav-header">
+                        <IntlMessages id="sidebar.management"/>
+                    </li>
+
+                    <li className="menu">
+                        <a role="button" href="javascript:void(0)">
+                            <i className="zmdi zmdi-truck zmdi-hc-fw"/>
+                            <span className="nav-text">
+                            <IntlMessages id="sidebar.managementSuppliers"/>
+                        </span>
+                        </a>
+                        <ul className="sub-menu">
+                            <NavLink className="prepend-icon" to="/app/suppliers">
+                                <span className="nav-text"><IntlMessages id="pages.listSuppliers"/></span>
+                            </NavLink>
+                            <NavLink className="prepend-icon" to="/app/suppliers">
+                                <span className="nav-text"><IntlMessages id="pages.addSuppliers"/></span>
+                            </NavLink>
+                            <NavLink className="prepend-icon" to="/app/suppliers">
+                                <span className="nav-text"><IntlMessages id="pages.updateSuppliers"/></span>
+                            </NavLink>                            
+                        </ul>
+
+                    </li>
+
+                    <li className="menu">
+                        <a role="button" href="javascript:void(0)">
+                            <i className="zmdi zmdi-truck zmdi-hc-fw"/>
+                            <span className="nav-text">
+                            <IntlMessages id="sidebar.managementCustomers"/>
+                        </span>
+                        </a>
+                        <ul className="sub-menu">
+                            <NavLink className="prepend-icon" to="/app/customers">
+                                <span className="nav-text"><IntlMessages id="pages.listCustomers"/></span>
+                            </NavLink>
+                            <NavLink className="prepend-icon" to="/app/customers">
+                                <span className="nav-text"><IntlMessages id="pages.addCustomers"/></span>
+                            </NavLink>
+                            <NavLink className="prepend-icon" to="/app/customers">
+                                <span className="nav-text"><IntlMessages id="pages.updateCustomers"/></span>
+                            </NavLink>                            
+                        </ul>
+                    </li>
+
+                    <li className="menu">
+                        <a role="button" href="javascript:void(0)">
+                            <i className="zmdi zmdi-truck zmdi-hc-fw"/>
+                            <span className="nav-text">
+                            <IntlMessages id="sidebar.managementRemises"/>
+                        </span>
+                        </a>
+                        <ul className="sub-menu">
+                            <NavLink className="prepend-icon" to="/app/checks">
+                                <span className="nav-text"><IntlMessages id="pages.listChecks"/></span>
+                            </NavLink>
+                            <NavLink className="prepend-icon" to="/app/checks">
+                                <span className="nav-text"><IntlMessages id="pages.listRemises"/></span>
+                            </NavLink>                        
+                        </ul>
+                    </li>
+
+                    <li className="menu">
+                        <a role="button" href="javascript:void(0)">
+                            <i className="zmdi zmdi-truck zmdi-hc-fw"/>
+                            <span className="nav-text">
+                            <IntlMessages id="sidebar.managementEmis"/>
+                        </span>
+                        </a>
+                        <ul className="sub-menu">
+                            <NavLink className="prepend-icon" to="/app/sample-page">
+                                <span className="nav-text"><IntlMessages id="pages.listEmis"/></span>
+                            </NavLink>                     
+                        </ul>
+                    </li>
+
+                    <li className="menu">
+                        <a role="button" href="javascript:void(0)">
+                            <i className="zmdi zmdi-truck zmdi-hc-fw"/>
+                            <span className="nav-text">
+                            <IntlMessages id="sidebar.managementOrders"/>
+                        </span>
+                        </a>
+                        <ul className="sub-menu">
+                            <NavLink className="prepend-icon" to="/app/orders">
+                                <span className="nav-text"><IntlMessages id="pages.listOrders"/></span>
+                            </NavLink>          
+                            <NavLink className="prepend-icon" to="/app/orders">
+                                <span className="nav-text"><IntlMessages id="pages.addOrders"/></span>
+                            </NavLink>  
+                            <NavLink className="prepend-icon" to="/app/orders">
+                                <span className="nav-text"><IntlMessages id="pages.updateOrders"/></span>
+                            </NavLink>                                                                     
+                        </ul>
+                    </li>
+
+                    <li className="menu">
+                        <a role="button" href="javascript:void(0)">
+                            <i className="zmdi zmdi-truck zmdi-hc-fw"/>
+                            <span className="nav-text">
+                            <IntlMessages id="sidebar.managementUsers"/>
+                        </span>
+                        </a>
+                        <ul className="sub-menu">
+                            <NavLink className="prepend-icon" to="/app/sample-page">
+                                <span className="nav-text"><IntlMessages id="pages.listUsers"/></span>
+                            </NavLink>          
+                            <NavLink className="prepend-icon" to="/app/sample-page">
+                                <span className="nav-text"><IntlMessages id="pages.addUsers"/></span>
+                            </NavLink>  
+                            <NavLink className="prepend-icon" to="/app/sample-page">
+                                <span className="nav-text"><IntlMessages id="pages.updateUsers"/></span>
+                            </NavLink>                                                                     
+                        </ul>
+                    </li>                    
+
+                    {/*<li className="menu no-arrow">
                         <NavLink to="/app/sample-page">
                             <i className="zmdi zmdi-view-dashboard zmdi-hc-fw"/>
                             <span className="nav-text"><IntlMessages id="pages.samplePage"/> </span>
                         </NavLink>
-                        <NavLink to="/app/orders">
-                            <i className="zmdi zmdi-shopping-cart zmdi-hc-fw"/>
-                            <span className="nav-text">Commandes</span>
-                        </NavLink>
-                        <NavLink to="/app/suppliers">
-                            <i className="zmdi zmdi-truck zmdi-hc-fw"/>
-                            <span className="nav-text">Suppliers</span>
-                        </NavLink>
-                        <NavLink to="/app/checks">
-                            <i className="zmdi zmdi-money zmdi-hc-fw"/>
-                            <span className="nav-text">Checks</span>
-                        </NavLink>
-                    </li>
+        </li>*/}
                 </ul>
             </CustomScrollbars>
         );
