@@ -167,7 +167,7 @@ class EnhancedTableToolbar extends React.Component {
             <div></div>
           )}
         </div>
-        {this.state.openModal && <FormDialog open={this.state.openModal} handleCloseModal={this.handleCloseModal}/>}
+        {this.state.openModal && <FormDialog selected={this.props.selected}  open={this.state.openModal} handleCloseModal={this.handleCloseModal}/>}
       </Toolbar>
     );
   }

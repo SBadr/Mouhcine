@@ -1,12 +1,16 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
+import Select from '@material-ui/core/Select';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import { MuiPickersUtilsProvider, TimePicker, DatePicker } from 'material-ui-pickers';
+import { DatePicker } from 'material-ui-pickers';
+import FormControl from '@material-ui/core/FormControl';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
 
 
 
@@ -21,16 +25,7 @@ class FormDialog extends React.Component {
     };
 
     createOrder = () => {
-        fetch('http://localhost:4000/api/orders', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(this.state)
-          }).then( r => {
-            this.handleRequestClose();
-            this.handleUpdateData();
-          })
+        console.log(this.props.selected)
           
     };
 
@@ -67,6 +62,21 @@ class FormDialog extends React.Component {
                         value={this.state.number}
                         onChange={this.handleInputChange}
                         />
+                        <FormControl fullWidth margin="normal">
+                            <InputLabel htmlFor="prepa">Préparation</InputLabel>
+                            <Select
+                                inputProps={{
+                                name: 'bank',
+                                }}
+                                value={this.state.bank}
+                                onChange={this.handleInputChange}
+                            >
+                                <MenuItem value="">
+                                <em>None</em>
+                                </MenuItem>
+                                <MenuItem value={'L'}>L</MenuItem>
+                            </Select>
+                        </FormControl>
                         <DatePicker
                         id="remiseDate"
                         label="Date de remise"
