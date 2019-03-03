@@ -581,5 +581,11 @@
   "sidebar.managementUsers": "Gestion des utilisateurs",
   "pages.listUsers": "Liste des utilisateurs",
   "pages.addUsers": "Ajouter un utilisateur",
-  "pages.updateUsers": "Modifier un utilisateur"
+  "pages.updateUsers": "Modifier un utilisateur",
+  "label.name": "Nom de l'entreprise",
+  "label.city": "Ville",
+  "label.phone": "Téléphone",
+  "label.email": "Email",
+  "label.manager": "Responsable",
+  "label.department": "Département"
 }

@@ -33,7 +33,6 @@ class FormDialog extends React.Component {
     };
 
     createSupliers = () => {
-        var requestURL = '/Users/MouhcinePRO/Downloads/codebeautify.json';
         fetch('http://localhost:4000/api/suppliers', {
             method: 'POST',
             headers: {
