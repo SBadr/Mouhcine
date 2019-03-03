@@ -169,7 +169,7 @@ class SidenavContent extends Component {
                             <NavLink className="prepend-icon" to="/app/checks">
                                 <span className="nav-text"><IntlMessages id="pages.listChecks"/></span>
                             </NavLink>
-                            <NavLink className="prepend-icon" to="/app/checks">
+                            <NavLink className="prepend-icon" to="/app/remises">
                                 <span className="nav-text"><IntlMessages id="pages.listRemises"/></span>
                             </NavLink>                        
                         </ul>
