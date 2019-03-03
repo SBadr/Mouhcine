@@ -163,7 +163,7 @@ div[tabindex="-1"] {
 
 .page-heading {
   @extend %jr-card-style;
-  margin-bottom: $jr-card-margin * 1.5;
+  margin-bottom: 0px;
   padding: $jr-card-padding;
 
   & .title {

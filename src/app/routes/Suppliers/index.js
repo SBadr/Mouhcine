@@ -1,22 +1,16 @@
 import React from 'react';
-import CardBox from 'components/CardBox/index';
-import IntlMessages from 'util/IntlMessages';
-import DataTable from './Components/DataTable';
+import {Redirect, Route, Switch} from 'react-router-dom';
+import asyncComponent from '../../../util/asyncComponent';
 
-class Suppliers extends React.Component {
+const Dashboard = ({match}) => (
+    <div className="app-wrapper">
+        <Switch>
+            <Redirect exact from={`${match.url}/`} to={`${match.url}/default`}/>
+            <Route path={`${match.url}/listSuppliers`} component={asyncComponent(() => import('./routes/listSuppliers'))}/>
+            <Route path={`${match.url}/addSupplier`} component={asyncComponent(() => import('./routes/addSupplier'))}/>
+            <Route path={`${match.url}/updateSupplier`} component={asyncComponent(() => import('./routes/updateSupplier'))}/>
+        </Switch>
+    </div>
+);
 
-    render() {
-        return (
-            <div className="app-wrapper">
-                <div className="row animated slideInUpTiny animation-duration-3">
-                    <CardBox styleName="col-12" cardStyle=" p-0" heading="List des fournisseurs"
-                            headerOutside>
-                        <DataTable/>
-                    </CardBox>
-                </div>
-            </div>
-        );
-    }
-}
-
-export default Suppliers;
+export default Dashboard;

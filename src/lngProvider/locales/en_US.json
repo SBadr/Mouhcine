@@ -581,5 +581,11 @@
   "sidebar.managementUsers": "Manage users",
   "pages.listUsers": "List of users",
   "pages.addUsers": "Add a user",
-  "pages.updateUsers": "Edit a user"
+  "pages.updateUsers": "Edit a user",
+  "label.name": "Name",
+  "label.city": "City",
+  "label.phone": "Phone",
+  "label.email": "Email",
+  "label.manager": "Manager",
+  "label.department": "Department"
 }
