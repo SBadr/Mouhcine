@@ -19,10 +19,10 @@ const initialSettings = {
   navigationStyle: VERTICAL_NAVIGATION,
   horizontalNavPosition: INSIDE_THE_HEADER,
   locale: {
-    languageId: 'english',
-    locale: 'en',
-    name: 'English',
-    icon: 'us'
+    languageId: 'french',
+    locale: 'fr',
+    name: 'French',
+    icon: 'fr'
   }
 };
 
