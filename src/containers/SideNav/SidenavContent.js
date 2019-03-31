@@ -122,14 +122,17 @@ class SidenavContent extends Component {
                 </NavLink>
               </li>
             </ul>
+          </li>
 
+          <li className="nav-header">
+            <IntlMessages id="sidebar.management" />
           </li>
 
           <li className="menu">
             <Button>
               <i className="zmdi zmdi-view-dashboard zmdi-hc-fw" />
               <span className="nav-text">
-                <IntlMessages id="sidebar.managementSuppliers" />
+                <IntlMessages id="sidebar.suppliers" />
               </span>
             </Button>
             <ul className="sub-menu">
@@ -155,22 +158,22 @@ class SidenavContent extends Component {
             <Button>
               <i className="zmdi zmdi-view-dashboard zmdi-hc-fw" />
               <span className="nav-text">
-                <IntlMessages id="sidebar.managementCustomers" />
+                <IntlMessages id="sidebar.customers" />
               </span>
             </Button>
             <ul className="sub-menu">
               <li>
-                <NavLink className="prepend-icon" to="/app/customers">
+                <NavLink className="prepend-icon" to="/app/listCustomers">
                   <span className="nav-text"><IntlMessages id="pages.listCustomers" /></span>
                 </NavLink>
               </li>
               <li>
-                <NavLink className="prepend-icon" to="/app/customers">
+                <NavLink className="prepend-icon" to="/app/addCustomers">
                   <span className="nav-text"><IntlMessages id="pages.addCustomers" /></span>
                 </NavLink>
               </li>
               <li>
-                <NavLink className="prepend-icon" to="/app/customers">
+                <NavLink className="prepend-icon" to="/app/updateCustomers">
                   <span className="nav-text"><IntlMessages id="pages.updateCustomers" /></span>
                 </NavLink>
               </li>
@@ -181,7 +184,7 @@ class SidenavContent extends Component {
             <Button>
               <i className="zmdi zmdi-view-dashboard zmdi-hc-fw" />
               <span className="nav-text">
-                <IntlMessages id="sidebar.managementRemises" />
+                <IntlMessages id="sidebar.remises" />
               </span>
             </Button>
             <ul className="sub-menu">
@@ -202,12 +205,12 @@ class SidenavContent extends Component {
             <Button>
               <i className="zmdi zmdi-view-dashboard zmdi-hc-fw" />
               <span className="nav-text">
-                <IntlMessages id="sidebar.managementEmis" />
+                <IntlMessages id="sidebar.emis" />
               </span>
             </Button>
             <ul className="sub-menu">
               <li>
-                <NavLink className="prepend-icon" to="/app/sample-page">
+                <NavLink className="prepend-icon" to="/app/listEmis">
                   <span className="nav-text"><IntlMessages id="pages.listEmis" /></span>
                 </NavLink>
               </li>
@@ -218,7 +221,7 @@ class SidenavContent extends Component {
             <Button>
               <i className="zmdi zmdi-view-dashboard zmdi-hc-fw" />
               <span className="nav-text">
-                <IntlMessages id="sidebar.managementOrders" />
+                <IntlMessages id="sidebar.orders" />
               </span>
             </Button>
             <ul className="sub-menu">
@@ -228,12 +231,12 @@ class SidenavContent extends Component {
                 </NavLink>
               </li>
               <li>
-                <NavLink className="prepend-icon" to="/app/orders">
+                <NavLink className="prepend-icon" to="/app/addOrders">
                   <span className="nav-text"><IntlMessages id="pages.addOrders" /></span>
                 </NavLink>
               </li>
               <li>
-                <NavLink className="prepend-icon" to="/app/orders">
+                <NavLink className="prepend-icon" to="/app/updateOrders">
                   <span className="nav-text"><IntlMessages id="pages.updateOrders" /></span>
                 </NavLink>
               </li>
@@ -245,22 +248,22 @@ class SidenavContent extends Component {
             <Button>
               <i className="zmdi zmdi-view-dashboard zmdi-hc-fw" />
               <span className="nav-text">
-                <IntlMessages id="sidebar.managementUsers" />
+                <IntlMessages id="sidebar.users" />
               </span>
             </Button>
             <ul className="sub-menu">
               <li>
-                <NavLink className="prepend-icon" to="/app/sample-page">
+                <NavLink className="prepend-icon" to="/app/listUsers">
                   <span className="nav-text"><IntlMessages id="pages.listUsers" /></span>
                 </NavLink>
               </li>
               <li>
-                <NavLink className="prepend-icon" to="/app/sample-page">
+                <NavLink className="prepend-icon" to="/app/addUsers">
                   <span className="nav-text"><IntlMessages id="pages.addUsers" /></span>
                 </NavLink>
               </li>
               <li>
-                <NavLink className="prepend-icon" to="/app/sample-page">
+                <NavLink className="prepend-icon" to="/app/updateUsers">
                   <span className="nav-text"><IntlMessages id="pages.updateUsers" /></span>
                 </NavLink>
               </li>

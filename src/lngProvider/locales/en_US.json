@@ -599,5 +599,11 @@
   "label.phone": "Phone",
   "label.email": "Email",
   "label.manager": "Manager",
-  "label.department": "Department"
+  "label.department": "Department",
+  "sidebar.suppliers" : "suppliers",
+  "sidebar.customers": "customers",
+  "sidebar.remises": "remises",
+  "sidebar.emis": "emis",
+  "sidebar.orders": "orders",
+  "sidebar.users": "users"
 }

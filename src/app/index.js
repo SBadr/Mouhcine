@@ -15,6 +15,8 @@ import {
 import { isIOS, isMobile } from 'react-device-detect';
 import asyncComponent from '../util/asyncComponent';
 import TopNav from 'components/TopNav';
+import ColorOption from 'containers/Customizer/ColorOption';
+
 
 class App extends React.Component {
 
@@ -32,7 +34,7 @@ class App extends React.Component {
 
     return (
       <div className={`app-container ${drawerStyle}`}>
-        <Tour />
+        {/*<Tour />*/}
 
         <Sidebar />
         <div className="app-main-container">
@@ -61,6 +63,7 @@ class App extends React.Component {
             <Footer />
           </main>
         </div>
+        <ColorOption/>
       </div>
     );
   }

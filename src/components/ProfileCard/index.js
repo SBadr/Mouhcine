@@ -10,7 +10,7 @@ const ProfileCard = () => {
         </div>
       </div>
       <div className="pi-content">
-        <h4>Robert Johnson</h4>
+        <h4>Se Tong TAING</h4>
         <p>Designer</p>
         <p className="card-text">Hello everyone, I am Maryam. My designs are used in several big companies in United
           State and other

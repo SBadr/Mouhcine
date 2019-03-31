@@ -26,11 +26,11 @@ class UserInfo extends React.Component {
       <div className="user-profile d-flex flex-row align-items-center">
         <Avatar
           alt='...'
-          src={'https://via.placeholder.com/150x150'}
+          src={require("assets/images/avatar-setong.jpeg")}
           className="user-avatar "
         />
         <div className="user-detail">
-          <h4 className="user-name" onClick={this.handleClick}>Robert Johnson <i
+          <h4 className="user-name" onClick={this.handleClick}>Se Tong TAING<i
             className="zmdi zmdi-caret-down zmdi-hc-fw align-middle"/>
           </h4>
         </div>
