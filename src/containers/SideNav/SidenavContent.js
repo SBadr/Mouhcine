@@ -271,6 +271,26 @@ class SidenavContent extends Component {
             </ul>
           </li>
 
+          <li className="nav-header">
+            <IntlMessages id="sidebar.administration" />
+          </li>
+
+          <li className="menu">
+            <Button>
+              <i className="zmdi zmdi-view-dashboard zmdi-hc-fw" />
+              <span className="nav-text">
+                <IntlMessages id="sidebar.batch" />
+              </span>
+            </Button>
+            <ul className="sub-menu">
+              <li>
+                <NavLink className="prepend-icon" to="/app/listUsers">
+                  <span className="nav-text"><IntlMessages id="pages.batch" /></span>
+                </NavLink>
+              </li>
+            </ul>
+          </li>
+
         </ul>
       </CustomScrollbars>
     );
