@@ -27,6 +27,7 @@
     "history": "^4.7.2",
     "install": "^0.10.1",
     "isomorphic-fetch": "^2.2.1",
+    "jquery": "^3.4.0",
     "jss-rtl": "^0.2.3",
     "material-ui-pickers": "^2.0.1",
     "moment": "^2.24.0",
@@ -85,7 +86,8 @@
     "slick-carousel": "^1.8.1",
     "typeface-roboto": "^0.0.54",
     "unfetch": "^4.1.0",
-    "url-search-params": "^1.1.0"
+    "url-search-params": "^1.1.0",
+    "xlsx": "^0.14.3"
   },
   "scripts": {
     "start": "cross-env NODE_PATH=src react-scripts start",
