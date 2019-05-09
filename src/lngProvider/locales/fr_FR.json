@@ -598,5 +598,8 @@
   "sidebar.remises": "remises",
   "sidebar.emis": "emis",
   "sidebar.orders": "commandes",
-  "sidebar.users": "Utilisateurs"
+  "sidebar.users": "Utilisateurs",
+  "pages.batch": "batch",
+  "sidebar.batch": "batch",
+  "sidebar.administration" : "administration"
 }

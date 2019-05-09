@@ -605,5 +605,8 @@
   "sidebar.remises": "remises",
   "sidebar.emis": "emis",
   "sidebar.orders": "orders",
-  "sidebar.users": "users"
+  "sidebar.users": "users",
+  "pages.batch": "batch",
+  "sidebar.batch": "batch",
+  "sidebar.administration" : "administration"
 }

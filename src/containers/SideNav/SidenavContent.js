@@ -284,7 +284,7 @@ class SidenavContent extends Component {
             </Button>
             <ul className="sub-menu">
               <li>
-                <NavLink className="prepend-icon" to="/app/listUsers">
+                <NavLink className="prepend-icon" to="/app/batch">
                   <span className="nav-text"><IntlMessages id="pages.batch" /></span>
                 </NavLink>
               </li>
